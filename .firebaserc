@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "simple-crm-af2fd": {
-      "hosting": {
-        "simple-crm": [
-          "simple-crm-af2fd"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "simple-crm-af2fd"
   }
