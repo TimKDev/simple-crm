@@ -8,10 +8,10 @@
       <mat-form-field appearance="outline" class="mr-16">
         <mat-label>First Name</mat-label>
         <!-- Mit der ngModel Directive kann man den Wert eines Input, Select oder 
-        Textarea Tags direkt mit einem Attribut der Komponente verbinden. In diesem
-        Fall wird hierbei ein two-way-Binding verwendet, dass heißt das der Wert des 
-        Inputfelds den Wert des Attributs annimmt und das Attribut den Wert der in 
-        das Inputfeld geschrieben wurde:  -->
+        Textarea Tags direkt mit einem Attribut der Komponente verbinden. D.h. ngModel
+        ist quasi das innerHTML des Input Tags. In diesem Fall wird hierbei ein two-way-Binding
+        verwendet, dass heißt das der Wert des Inputfelds den Wert des Attributs annimmt und 
+        das Attribut den Wert der in das Inputfeld geschrieben wurde:  -->
         <input matInput
           [(ngModel)]="user.firstName"
           [disabled]="loading"
