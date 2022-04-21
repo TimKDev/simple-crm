@@ -3,6 +3,7 @@ import { last } from "rxjs";
 export class User {
   firstName!: string;
   lastName!: string;
+  eMail!: string;
   birthDate!: number;
   street!: string;
   zipCode!: number;
@@ -15,6 +16,7 @@ export class User {
     // Wenn der Boolsche Wert obj (d.h. in diesem Fall ist dies die Frage ob obj definiert ist)
     // wahr ist, wird this.firstName der Wert obj.firstName zugeordnet und ansonsten der Wert ''.
     this.lastName = obj ? obj.lastName : '';
+    this.eMail = obj ? obj.eMail : '';
     this.birthDate = obj ? obj.birthDate : '';
     this.street = obj ? obj.street : '';
     this.zipCode = obj ? obj.zipCode : '';
@@ -25,6 +27,7 @@ export class User {
     return {
       firstName: this.firstName,
       lastName : this.lastName,
+      eMail: this.eMail,
       birthDate: this.birthDate,
       street: this.street,
       zipCode: this.zipCode,

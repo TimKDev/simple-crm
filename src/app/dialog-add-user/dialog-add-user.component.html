@@ -1,77 +1,104 @@
-<h1 mat-dialog-title>Add User</h1>
-<div mat-dialog-content>
-  <div>
-    <mat-form-field appearance="outline" class="mr-16">
-      <mat-label>First Name</mat-label>
-      <!-- Mit der ngModel Directive kann man den Wert eines Input, Select oder 
-      Textarea Tags direkt mit einem Attribut der Komponente verbinden. In diesem
-      Fall wird hierbei ein two-way-Binding verwendet, dass heißt das der Wert des 
-      Inputfelds den Wert des Attributs annimmt und das Attribut den Wert der in 
-      das Inputfeld geschrieben wurde:  -->
-      <input matInput
-        [(ngModel)]="user.firstName"
-        placeholder="Placeholder">
-      <!-- <mat-hint>Please enter a name.</mat-hint> -->
-    </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Last Name</mat-label>
-      <input matInput
-        [(ngModel)]="user.lastName"
-        placeholder="Placeholder">
-      <!-- <mat-hint>Please enter a name.</mat-hint> -->
-    </mat-form-field>
+<div class="dialog-container">
+  <mat-progress-bar *ngIf="loading"
+    mode="indeterminate"></mat-progress-bar>
+  <h1 mat-dialog-title>Add User</h1>
+  <div mat-dialog-content>
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>First Name</mat-label>
+        <!-- Mit der ngModel Directive kann man den Wert eines Input, Select oder 
+        Textarea Tags direkt mit einem Attribut der Komponente verbinden. In diesem
+        Fall wird hierbei ein two-way-Binding verwendet, dass heißt das der Wert des 
+        Inputfelds den Wert des Attributs annimmt und das Attribut den Wert der in 
+        das Inputfeld geschrieben wurde:  -->
+        <input matInput
+          [(ngModel)]="user.firstName"
+          [disabled]="loading"
+          placeholder="First Name">
+        <!-- <mat-hint>Please enter a name.</mat-hint> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput
+          [(ngModel)]="user.lastName"
+          [disabled]="loading"
+          placeholder="Last Name">
+        <!-- <mat-hint>Please enter a name.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16 full-width">
+        <mat-label>E-Mail</mat-label>
+        <input matInput
+          [(ngModel)]="user.eMail"
+          [disabled]="loading"
+          placeholder="Placeholder">
+        <!-- <mat-hint>Please enter a date.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16 full-width">
+        <mat-label>Birth Date</mat-label>
+        <input matInput
+          [(ngModel)]="birthDate"
+          [disabled]="loading"
+          placeholder="Placeholder"
+          [matDatepicker]="picker">
+        <!-- <mat-hint>Please enter a date.</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Street + House No.</mat-label>
+        <input matInput 
+          [(ngModel)]="user.street"
+          [disabled]="loading"
+          placeholder="Placeholder">
+        <!-- <mat-hint>Please enter a name.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>Zip Code</mat-label>
+        <input matInput 
+          [(ngModel)]="user.zipCode"
+          [disabled]="loading"
+          placeholder="Placeholder">
+        <!-- <mat-hint>Please enter a name.</mat-hint> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput 
+          [(ngModel)]="user.city"
+          [disabled]="loading"
+          placeholder="Placeholder">
+        <!-- <mat-hint>Please enter a name.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+
   </div>
-
-  <div>
-    <mat-form-field appearance="outline" class="mr-16 full-width">
-      <mat-label>Birth Date</mat-label>
-      <input matInput
-        [(ngModel)]="birthDate"
-        placeholder="Placeholder"
-        [matDatepicker]="picker">
-      <!-- <mat-hint>Please enter a date.</mat-hint> -->
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button
+      (click)="cancleDialog()"
+      [disabled]="loading">
+      Cancle
+    </button>
+    <button mat-button
+      (click)="saveUser()"
+      [disabled]="loading"
+      cdkFocusInitial>
+      Save
+    </button>
   </div>
-
-  <div>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Street + House No.</mat-label>
-      <input matInput 
-        [(ngModel)]="user.street"
-        placeholder="Placeholder">
-      <!-- <mat-hint>Please enter a name.</mat-hint> -->
-    </mat-form-field>
-  </div>
-
-  <div>
-    <mat-form-field appearance="outline" class="mr-16">
-      <mat-label>Zip Code</mat-label>
-      <input matInput 
-        [(ngModel)]="user.zipCode"
-        placeholder="Placeholder">
-      <!-- <mat-hint>Please enter a name.</mat-hint> -->
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>City</mat-label>
-      <input matInput 
-        [(ngModel)]="user.city"
-        placeholder="Placeholder">
-      <!-- <mat-hint>Please enter a name.</mat-hint> -->
-    </mat-form-field>
-  </div>
-
 
 </div>
-<div mat-dialog-actions>
-  <button mat-button>Cancle</button>
-  <button mat-button
-    (click)="saveUser()"
-    cdkFocusInitial>
-    Save
-  </button>
-</div>
-

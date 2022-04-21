@@ -19,6 +19,7 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 // #######################################################################################################################
 // ACHTUNG: Automatische Imports von Angular Firebase gehören zur neuen API, aber ich möchte hier die
@@ -72,7 +73,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     // provideStorage(() => getStorage()),
     // // Nicht automatische Firestore Imports:
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
