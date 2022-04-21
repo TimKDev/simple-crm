@@ -12,7 +12,7 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class UserComponent implements OnInit {
 
   user = new User();
-  allUsers: User[] = [];
+  allUsers: any = [];
 
   constructor(
     public dialog: MatDialog,
@@ -22,7 +22,9 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.firestore
     .collection('users')
-    .valueChanges()
+    .valueChanges({idField: 'customIdName'}) // Durch Hinzufügen dieses Arguments, wird
+    // die Id unter der der User im Firestore gespeichert wird, in einem Attribut des 
+    // Users mit Namen customIdName gespeichert.
     .subscribe((changes: any) => {
       console.log('Received changes from DB:', changes);
       this.allUsers = changes;

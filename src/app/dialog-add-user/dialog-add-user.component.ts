@@ -19,15 +19,12 @@ export class DialogAddUserComponent implements OnInit {
   // oder public stehen, sonst gibt es einen Fehler:
   constructor(
     private firestore: AngularFirestore,
-    private dialogRef: MatDialogRef<DialogAddUserComponent>
+    public dialogRef: MatDialogRef<DialogAddUserComponent>
     ) { }
 
   ngOnInit(): void {
   }
 
-  cancleDialog() {
-    this.dialogRef.close();
-  }
 
   saveUser() {
     this.loading = true;

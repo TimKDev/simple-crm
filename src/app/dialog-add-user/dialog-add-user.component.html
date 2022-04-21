@@ -89,7 +89,7 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button
-      (click)="cancleDialog()"
+      (click)="dialogRef.close()"
       [disabled]="loading">
       Cancle
     </button>

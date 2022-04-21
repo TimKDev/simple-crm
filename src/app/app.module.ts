@@ -37,6 +37,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
@@ -47,7 +48,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppComponent,
     DashboardComponent,
     UserComponent,
-    DialogAddUserComponent
+    DialogAddUserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<mat-card class="user-detail-header">
+  <img src="./assets/img/1.webp">
+  <div class="user-details">
+    <h2>{{ currentUser.firstName }} {{ currentUser.lastName }}</h2> 
+    {{ currentUser.eMail }}
+  </div>
+</mat-card>
+
+<mat-card class="mt-32">
+  <mat-card-title>Address</mat-card-title>
+  <mat-card-content>
+    {{ currentUser.street}}
+    {{ currentUser.zipCode }} {{ currentUser.city }}
+  </mat-card-content>
+</mat-card>
+
+
+
