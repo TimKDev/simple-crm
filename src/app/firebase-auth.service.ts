@@ -7,11 +7,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class FirebaseAuthService {
 
-  loggedIn = false;
+  public loggedIn = false;
   // Die folgenden Variablen definieren die Berechtigungen des verschiedenen eingeloggeden User:
-  isSeller = false;
-  isBanker = false;
-  isAdmin = false;
+  public isSeller = false;
+  public isBanker = false;
+  public isAdmin = false;
 
 
   constructor(
@@ -24,7 +24,8 @@ export class FirebaseAuthService {
   async signIn(email: string, password: string){
     await this.firebaseAuth.signInWithEmailAndPassword(email, password)
     .then(res => {
-      this.loggedIn = true;     
+      this.loggedIn = true;    
+      this.updateLocalData(res);
     })
     .catch(err => {
       console.warn(err);
@@ -45,20 +46,31 @@ export class FirebaseAuthService {
     await this.firebaseAuth.signInWithEmailAndPassword(email, password)
     .then(res => {
       this.loggedIn = true;
-      // let userUID = res.user?.uid;
       this.firestore
       .collection('accounts')
       .doc(`${res.user?.uid}`)
       .set(config)
+      // Update the Attributs of this Service.
+      this.updateLocalData(res);
     });
-    
-
   }
 
   logOut() {
     this.firebaseAuth.signOut();
     localStorage.removeItem('userAuth');
     this.loggedIn = false;
+  }
+
+  updateLocalData(res: any) {
+    this.firestore
+      .collection('accounts')
+      .doc(`${res.user?.uid}`)
+      .valueChanges()
+      .subscribe((config: any) => {
+        this.isSeller = config.isSeller;
+        this.isBanker = config.isBanker;
+        this.isAdmin = config.isAdmin;
+      });
   }
   
 }

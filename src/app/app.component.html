@@ -61,12 +61,17 @@
             <mat-icon (click)="drawer.toggle()" class="menu-icon">menu</mat-icon>
             <span>Simple CRM</span>
           </div>
-          <button mat-raised-button color="basic" (click)="logOut()">Log out</button>
+          <div>
+            <button mat-raised-button color="basic" (click)="logOut()">Log out</button>
+          </div>
         </mat-toolbar-row>
       </mat-toolbar>
       <!-- Page Content: -->
       <div class="router-container">
         <router-outlet></router-outlet>
+        Salesman: {{fireAuth.isSeller}} <br>
+        Banker: {{fireAuth.isBanker}} <br>
+        Admin: {{fireAuth.isAdmin}}
       </div>
 
     </div>
