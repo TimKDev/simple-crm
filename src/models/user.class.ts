@@ -7,6 +7,7 @@ export class User {
   street!: string;
   zipCode!: number;
   city!: string;
+  IBAN!: string;
 
   constructor(obj?: any) { // Das Fragezeichen definiert das Argument object als 
     // optionales Attribut, d.h. der Konstruktor kann auch ohne diese Argument verwendet 
@@ -20,6 +21,7 @@ export class User {
     this.street = obj ? obj.street : '';
     this.zipCode = obj ? obj.zipCode : '';
     this.city = obj ? obj.city : '';
+    this.IBAN = obj ? obj.IBAN : 'DE00000000000000';
   }
 
   public toJSON() {
@@ -30,7 +32,8 @@ export class User {
       birthDate: this.birthDate,
       street: this.street,
       zipCode: this.zipCode,
-      city: this.city
+      city: this.city,
+      IBAN: this.IBAN
     }
   }
 }
