@@ -42,6 +42,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { FirebaseAuthService } from './firebase-auth.service';
+import { DialogAddAccountComponent } from './dialog-add-account/dialog-add-account.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -54,7 +57,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    DialogAddAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -82,9 +86,12 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  // Services die dem folgenden providers Array hinzugefügt werden, sind in der gesamten App zugänglich
+  // und müssen nicht mehr am Anfang importiert werden: 
+  providers: [FirebaseAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
