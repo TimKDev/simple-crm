@@ -1,4 +1,3 @@
-import { last } from "rxjs";
 
 export class User {
   firstName!: string;
