@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditBankingComponent } from '../dialog-edit-banking/dialog-edit-banking.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
@@ -55,7 +56,13 @@ export class UserDetailComponent implements OnInit {
     // Komponenteninstanz zugegriffen werden, die im Dialog generiert wird. Dann kann man dieser
     // Komponente Informationen geben. Hier kann kein @Input() verwendet werden, da im HTML die
     // Dialogkomponente nicht explizit erzeugt wird, daher wird die folgende Zeile benötigt:
-    dialog.componentInstance.currentUser = new User (this.currentUser);
+    dialog.componentInstance.currentUser = new User(this.currentUser);
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  editBanking() {
+    const dialog = this.dialog.open(DialogEditBankingComponent);
+    dialog.componentInstance.currentUser = new User(this.currentUser);
     dialog.componentInstance.userId = this.userId;
   }
 
