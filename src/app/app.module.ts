@@ -50,6 +50,8 @@ import { DialogEditBankingComponent } from './dialog-edit-banking/dialog-edit-ba
 import { OrdersComponent } from './orders/orders.component';
 import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
 import { ProductComponent } from './product/product.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -97,7 +99,8 @@ import { ProductComponent } from './product/product.component';
     AngularFirestoreModule,
     MatProgressBarModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule
   ],
   // Services die dem folgenden providers Array hinzugefügt werden, sind in der gesamten App zugänglich
   // und müssen nicht mehr am Anfang importiert werden: 

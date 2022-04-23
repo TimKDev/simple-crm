@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Goods, goodsShop } from 'src/models/goods.class';
 import { Order } from 'src/models/order.class';
+import { User } from 'src/models/user.class';
 
 @Component({
   selector: 'app-dialog-add-order',
@@ -13,7 +14,9 @@ import { Order } from 'src/models/order.class';
 export class DialogAddOrderComponent implements OnInit {
   products: Goods[] = goodsShop;
   numberProductsInBasket: number[] = [];
-  order!: Order;
+  allUsers: User[] = [];
+  selectedUser: User = this.allUsers[0] ? this.allUsers[0] : new User();
+  // order!: Order;
   loading = false;
 
   // Wichtig vor dem Attribut indem die DI gespeichert wird, muss private 
@@ -27,6 +30,13 @@ export class DialogAddOrderComponent implements OnInit {
     for(let i = 0; i < goodsShop.length; i++){
       this.numberProductsInBasket.push(0);
     }
+
+    this.firestore
+    .collection('users')
+    .valueChanges({idField: 'customIdName'})
+    .subscribe((changes: any) => {
+      this.allUsers = changes; 
+    });
   }
 
   changeNumber(change: [number, number]) {

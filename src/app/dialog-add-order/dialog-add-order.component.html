@@ -11,6 +11,18 @@
         [edit]="true">
       </app-product>
     </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Customer</mat-label>
+      <select matNativeControl required [(ngModel)]="selectedUser">
+        <option *ngFor="let user of allUsers"
+         value="user">
+          {{user.firstName}} {{user.lastName}}
+        </option>
+      </select>
+    </mat-form-field>
+<!-- ############################ -->
+    {{selectedUser.firstName}}
        
 
   </div>
