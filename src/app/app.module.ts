@@ -45,6 +45,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { FirebaseAuthService } from './firebase-auth.service';
 import { DialogAddAccountComponent } from './dialog-add-account/dialog-add-account.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { StartComponent } from './start/start.component';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -58,7 +59,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    DialogAddAccountComponent
+    DialogAddAccountComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,

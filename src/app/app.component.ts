@@ -11,34 +11,19 @@ import { FirebaseAuthService } from './firebase-auth.service';
 export class AppComponent implements OnInit{
   title = 'simple-crm';
   loggedIn = false;
-  role!: string;
+  // role!: string;
   
-  constructor(
-    public fireAuth: FirebaseAuthService,
-    public dialog: MatDialog
-  ){ }
+  constructor(public fireAuth: FirebaseAuthService){ }
 
   ngOnInit() {
   }
 
-  async onSignIn(email: string, password: string) {
-    await this.fireAuth.signIn(email, password);
-    if (this.fireAuth.loggedIn) this.loggedIn = true; 
+  logUserIn(bool: boolean){
+    this.loggedIn = bool;
   }
 
   logOut() {
     this.fireAuth.logOut();
     this.loggedIn = false;
   }
-
-  openDialog() {
-    let dialogRef = this.dialog.open(DialogAddAccountComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.loggedIn = this.fireAuth.loggedIn;
-    });
-  }
-
-
-  
 }
