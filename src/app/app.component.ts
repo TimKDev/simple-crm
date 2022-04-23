@@ -10,7 +10,7 @@ import { FirebaseAuthService } from './firebase-auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'simple-crm';
-  loggedIn = false;
+  loggedIn = true;
   // role!: string;
   
   constructor(public fireAuth: FirebaseAuthService){ }

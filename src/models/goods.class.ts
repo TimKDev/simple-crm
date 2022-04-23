@@ -1,10 +1,10 @@
-export interface goods{
+export interface Goods{
   name: string,
   price: number,
   imageURL: string
 }
 
-export let goodsShop: goods[] = [
+export let goodsShop: Goods[] = [
   {
     name: 'phone1',
     price: 500,

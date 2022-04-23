@@ -1,0 +1,22 @@
+.main {
+  width: 60vw;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  span:first-of-type {
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 128px;
+  }
+  button {
+    margin-right: 16px ;
+  }
+
+}

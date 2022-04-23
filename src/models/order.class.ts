@@ -1,9 +1,9 @@
-import { goods, goodsShop } from "./goods.class";
+import { Goods, goodsShop } from "./goods.class";
 import { User } from "./user.class";
 
 
 export class Order {
-  numberGoodsArray: [goods, number][] = [];
+  numberGoodsArray: [Goods, number][] = [];
   status = 'versendet';
   customer!: User;
   totalPrice = 0;

@@ -1,0 +1,14 @@
+<mat-card class="main">
+  <img [src]="product.imageURL">
+  <span>{{ product.name }}</span>
+  <span> Price: {{ product.price }}€</span>
+  <span> Number: {{ numberInBasket }}</span>
+  <div *ngIf="edit">
+    <button mat-mini-fab color="primary" (click)="removeNumber()">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" (click)="addNumber()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</mat-card>

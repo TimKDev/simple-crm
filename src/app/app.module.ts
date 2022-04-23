@@ -48,6 +48,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { StartComponent } from './start/start.component';
 import { DialogEditBankingComponent } from './dialog-edit-banking/dialog-edit-banking.component';
 import { OrdersComponent } from './orders/orders.component';
+import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
+import { ProductComponent } from './product/product.component';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -64,7 +66,9 @@ import { OrdersComponent } from './orders/orders.component';
     DialogAddAccountComponent,
     StartComponent,
     DialogEditBankingComponent,
-    OrdersComponent
+    OrdersComponent,
+    DialogAddOrderComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

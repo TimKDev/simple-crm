@@ -11,7 +11,8 @@
 
       <ul class="menu-items">
         <li [routerLink]="['/dashboard']"><mat-icon>fact_check</mat-icon> Dashboard</li>
-        <li [routerLink]="['/user']"><mat-icon>perm_identity</mat-icon> User</li>
+        <li [routerLink]="['/user']"><mat-icon>perm_identity</mat-icon> Customers</li>
+        <li [routerLink]="['/orders']"><mat-icon>cart</mat-icon> Orders</li>
       </ul>
 
     </mat-drawer>
@@ -31,9 +32,9 @@
       <!-- Page Content: -->
       <div class="router-container">
         <router-outlet></router-outlet>
-        Salesman: {{fireAuth.isSeller}} <br>
+        <!-- Salesman: {{fireAuth.isSeller}} <br>
         Banker: {{fireAuth.isBanker}} <br>
-        Admin: {{fireAuth.isAdmin}}
+        Admin: {{fireAuth.isAdmin}} -->
       </div>
 
     </div>
