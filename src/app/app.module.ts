@@ -52,7 +52,7 @@ import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.com
 import { ProductComponent } from './product/product.component';
 import { MatSelectModule } from '@angular/material/select';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -102,7 +102,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     MatProgressBarModule,
     MatMenuModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   // Services die dem folgenden providers Array hinzugefügt werden, sind in der gesamten App zugänglich
   // und müssen nicht mehr am Anfang importiert werden: 

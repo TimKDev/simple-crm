@@ -1,4 +1,4 @@
-<mat-card class="main">
+<mat-card class="main" *ngIf="edit || numberProduct > 0">
   <img [src]="product.imageURL">
   <span>{{ product.name }}</span>
   <span> Price: {{ product.price }}€</span>

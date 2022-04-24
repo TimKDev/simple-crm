@@ -9,11 +9,45 @@
   </mat-menu>
   <mat-card-title>Shopping Cart</mat-card-title>
   <div class="cart-div">
-
+    <app-product *ngFor="let product of products; let i = index"
+        [numberProduct]="activOrder.numberProductsInBasket[i]"
+        [product]="product"
+        [edit]="false">
+      </app-product>
   </div>
  	
  
 </mat-card>
+
+
+<mat-card class="mt-32 bill-card">
+  <button mat-icon-button 
+    [matMenuTriggerFor]="bankingMenu"
+    class="pin-right-upper-corner">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+ <mat-menu #bankingMenu="matMenu">
+    <button mat-menu-item (click)="editIBAN()">Edit</button>
+ </mat-menu>
+  
+  <mat-card-title>Bill</mat-card-title>
+  <mat-card-content>
+    <div>
+      <span>{{ activOrder.customer.firstName }} {{ activOrder.customer.lastName }}</span> <br>
+      <span>{{ activOrder.customer.street }}</span> <br>
+      <span>{{ activOrder.customer.zipCode }} {{ activOrder.customer.city }}</span> <br>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <span>IBAN: {{ activOrder.customer.IBAN}}</span> <br>
+      <span>Total price: <b>{{ activOrder.totalPrice }}€</b></span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    
+  </mat-card-actions>
+</mat-card>
+
 
 <mat-card class="mt-32">
   <button mat-icon-button 
@@ -25,7 +59,7 @@
     <button mat-menu-item (click)="editIBAN()">Edit</button>
  </mat-menu>
   
-  <mat-card-title>IBAN</mat-card-title>
+  <mat-card-title>Shipping</mat-card-title>
   <mat-card-content>
     {{ activOrder.customer.IBAN}}
   </mat-card-content>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Goods, goodsShop } from 'src/models/goods.class';
 import { Order } from 'src/models/order.class';
 
 @Component({
@@ -11,7 +12,11 @@ import { Order } from 'src/models/order.class';
 })
 export class OrderDetailComponent implements OnInit {
 
+  products: Goods[] = goodsShop; 
+
   activOrder: Order = new Order();
+
+  numBasket = [0,0,0,0];
 
   orderId: any = '';
 
@@ -36,6 +41,8 @@ export class OrderDetailComponent implements OnInit {
     .valueChanges()
     .subscribe((order: any) => {
       this.activOrder = new Order(order);
+      console.log( this.activOrder);
+      this.numBasket = this.activOrder.numberProductsInBasket;
     });
   }
 
