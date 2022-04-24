@@ -14,15 +14,19 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Customer</mat-label>
+      <!-- Achtung: An [value] kann nur ein String übergeben werden und kein Objekt. Falls man in 
+        ein beliebiges Objekt als Wert eines <option> Tags in einem <select> verwenden möchte, muss
+        stattdessen [ngValue] verwendet werden: -->
       <select matNativeControl required [(ngModel)]="selectedUser">
         <option *ngFor="let user of allUsers"
-         value="user">
+         [ngValue]="user">
           {{user.firstName}} {{user.lastName}}
         </option>
       </select>
     </mat-form-field>
-<!-- ############################ -->
-    {{selectedUser.firstName}}
+
+    <span>Total Price: {{totalPrice}}€</span>
+
        
 
   </div>
