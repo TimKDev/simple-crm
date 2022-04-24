@@ -68,11 +68,16 @@ export class DialogAddOrderComponent implements OnInit {
 
   saveUser() {
     this.loading = true;
-    let newOrder = new Order(this.numberProductsInBasket, this.selectedUser, this.totalPrice);
+    let newOrder = {
+      numberProductsInBasket: this.numberProductsInBasket,
+      status: 'active',
+      customer: this.selectedUser,
+      totalPrice: this.totalPrice
+    };
 
     this.firestore
     .collection('orders')
-    .add(newOrder.toJSON())
+    .add(newOrder)
     .then((result: any) => {
       console.log('Adding order finished', result);
       this.loading = false;

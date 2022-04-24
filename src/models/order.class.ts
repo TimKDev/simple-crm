@@ -4,20 +4,18 @@ import { User } from "./user.class";
 
 export class Order {
   numberGoodsArray: any = [];
-  status = 'aktiv';
+  status! :string;
   customer!: User;
   totalPrice = 0;
 
-  constructor(numberGoodsArray: number[], customer: User, totalPrice: number) {
-    this.numberGoodsArray = numberGoodsArray;
-    this.totalPrice = totalPrice;
-    this.customer = customer;
+  constructor(obj?: any) {
+    this.numberGoodsArray = obj ? obj.numberGoodsArray : [];
+    this.status = obj ? obj.status : 'active';
+    this.totalPrice = obj ? obj.totalPrice : 0;
+    this.customer = obj ? obj.customer : new User();
   }
 
   toJSON() {
-    // let c = this.customer.toJSON();
-    console.log(this.customer);
-    
     return {
       numberGoodsArray: this.numberGoodsArray,
       status: this.status,

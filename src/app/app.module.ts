@@ -51,6 +51,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
 import { ProductComponent } from './product/product.component';
 import { MatSelectModule } from '@angular/material/select';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
@@ -70,7 +71,8 @@ import { MatSelectModule } from '@angular/material/select';
     DialogEditBankingComponent,
     OrdersComponent,
     DialogAddOrderComponent,
-    ProductComponent
+    ProductComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
