@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Goods, goodsShop } from 'src/models/goods.class';
 import { Order } from 'src/models/order.class';
+import { FirebaseAuthService } from '../firebase-auth.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -20,10 +21,13 @@ export class OrderDetailComponent implements OnInit {
 
   orderId: any = '';
 
+  billStatus: string = 'open'
+
   constructor(
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
-    public dialog: MatDialog 
+    public dialog: MatDialog,
+    public auth: FirebaseAuthService
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +50,13 @@ export class OrderDetailComponent implements OnInit {
     });
   }
 
+  saveOrder() {
+    this.firestore
+    .collection('orders')
+    .doc(this.orderId)
+    .update(this.activOrder.toJSON())
+  }
+
   editOrder() {
 
   }
@@ -53,4 +64,40 @@ export class OrderDetailComponent implements OnInit {
   editIBAN() {
 
   }
+
+  canclePayment() {
+    this.activOrder.status = 'active';
+    this.saveOrder();
+  }
+
+  userPayed() {
+    this.activOrder.status = 'payed';
+    this.saveOrder();
+    
+  }
+
+  getBillStatus(order: Order): string {
+    if(order.status == 'active') return 'open';
+    if(order.status == 'cancled') return 'cancled';
+    if(order.status == 'payed' || order.status == 'completed') return 'payed';
+    else {
+      return 'ORDER STATUS NOT DEFINED';
+    }
+  }
+
+  sendOrder() {
+    if (this.activOrder.status == 'payed'){
+      this.activOrder.status = 'completed';
+      this.saveOrder();
+      alert(`The order was send to ${this.activOrder.customer.firstName} ${this.activOrder.customer.lastName}.`)
+    }
+    else if(this.activOrder.status == 'completed'){
+      alert('The order was already sent.');
+    }
+    else {
+      alert('You do not have permissons to send the order. Please log in as a seller or admin.');
+    }
+  }
+
+
 }

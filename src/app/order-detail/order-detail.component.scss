@@ -32,11 +32,22 @@
 .bill-card{
   span {
     margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   div {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
+
+.border-bottom {
+  border-bottom: 1px solid #8080804d;
+}
+
+
+.bill-status {
+  font-size: 12px;
+  color: grey;
+}

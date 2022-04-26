@@ -30,21 +30,28 @@
     <button mat-menu-item (click)="editIBAN()">Edit</button>
  </mat-menu>
   
-  <mat-card-title>Bill</mat-card-title>
+  <mat-card-title>Bill <span class="bill-status">({{ getBillStatus(activOrder) }})</span></mat-card-title>
   <mat-card-content>
-    <div>
+    <div class="border-bottom">
       <span>{{ activOrder.customer.firstName }} {{ activOrder.customer.lastName }}</span> <br>
       <span>{{ activOrder.customer.street }}</span> <br>
       <span>{{ activOrder.customer.zipCode }} {{ activOrder.customer.city }}</span> <br>
     </div>
-    <mat-divider></mat-divider>
     <div>
       <span>IBAN: {{ activOrder.customer.IBAN}}</span> <br>
       <span>Total price: <b>{{ activOrder.totalPrice }}€</b></span>
     </div>
   </mat-card-content>
-  <mat-card-actions>
-    
+  <mat-card-actions *ngIf="this.auth.isBanker || this.auth.isAdmin">
+    <button mat-button
+      (click)="canclePayment()">
+      Cancle payment
+    </button>
+    <button mat-button
+      (click)="userPayed()"
+      cdkFocusInitial>
+      Recived payment
+    </button>
   </mat-card-actions>
 </mat-card>
 
@@ -59,9 +66,18 @@
     <button mat-menu-item (click)="editIBAN()">Edit</button>
  </mat-menu>
   
-  <mat-card-title>Shipping</mat-card-title>
+  <mat-card-title>Shipping Information</mat-card-title>
   <mat-card-content>
-    {{ activOrder.customer.IBAN}}
+    <span>{{ activOrder.customer.firstName }} {{ activOrder.customer.lastName }}</span> <br>
+    <span>{{ activOrder.customer.street }}</span> <br>
+    <span>{{ activOrder.customer.zipCode }} {{ activOrder.customer.city }}</span> <br>
   </mat-card-content>
+  <mat-card-actions *ngIf="this.auth.isSeller || this.auth.isAdmin">
+    <button mat-button
+      (click)="sendOrder()"
+      cdkFocusInitial>
+      Send Order
+    </button>
+  </mat-card-actions>
 </mat-card>
 
