@@ -15,12 +15,12 @@
         [edit]="false">
       </app-product>
   </div>
- 	
- 
 </mat-card>
 
 
-<mat-card class="mt-32 bill-card">
+<mat-card class="mt-32 bill-card" 
+  [class.bill-payed]="(this.activOrder.status == 'payed') || (this.activOrder.status == 'completed')"
+  [class.bill-open]="!((this.activOrder.status == 'payed') || (this.activOrder.status == 'completed'))">
   <button mat-icon-button 
     [matMenuTriggerFor]="bankingMenu"
     class="pin-right-upper-corner">
@@ -42,16 +42,22 @@
       <span>Total price: <b>{{ activOrder.totalPrice }}€</b></span>
     </div>
   </mat-card-content>
-  <mat-card-actions *ngIf="this.auth.isBanker || this.auth.isAdmin">
-    <button mat-button
-      (click)="canclePayment()">
-      Cancle payment
-    </button>
-    <button mat-button
-      (click)="userPayed()"
-      cdkFocusInitial>
-      Recived payment
-    </button>
+  <mat-card-actions class="button-box-box">
+    <div [matTooltip]="buttonMess('billCancle')" class="button-box">
+      <button mat-button
+        [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
+        (click)="canclePayment()">
+        Cancle payment
+      </button>
+    </div>
+    <div [matTooltip]="buttonMess('billPay')" class="button-box">
+      <button mat-button
+        [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status == 'payed') || (this.activOrder.status == 'completed') "
+        (click)="userPayed()"
+        cdkFocusInitial>
+        Recived payment
+      </button>
+    </div>
   </mat-card-actions>
 </mat-card>
 
@@ -72,12 +78,15 @@
     <span>{{ activOrder.customer.street }}</span> <br>
     <span>{{ activOrder.customer.zipCode }} {{ activOrder.customer.city }}</span> <br>
   </mat-card-content>
-  <mat-card-actions *ngIf="this.auth.isSeller || this.auth.isAdmin">
-    <button mat-button
-      (click)="sendOrder()"
-      cdkFocusInitial>
-      Send Order
-    </button>
+  <mat-card-actions>
+    <div [matTooltip]="buttonMess('send')" class="button-box">
+      <button mat-button
+        [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
+        (click)="sendOrder()"
+        cdkFocusInitial>
+        Send Order
+      </button>
+    </div>
   </mat-card-actions>
 </mat-card>
 

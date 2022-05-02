@@ -99,5 +99,22 @@ export class OrderDetailComponent implements OnInit {
     }
   }
 
+  buttonMess(btn: string): any {
+    switch (btn) {
+      case 'send':
+        if(!this.auth.isSeller && !this.auth.isAdmin) return 'You do not have permissons to send the order. Please log in as a seller or admin.';
+        else if(this.activOrder.status != 'payed') return 'The order can only be send after it was payed by the customer. Please confirm the recived payment.'
+        break;
+      case 'billCancle':
+        if(!this.auth.isBanker && !this.auth.isAdmin) return 'You do not have permissons to cancle the payment. Please log in as a banker or admin.';
+        break;
+      case 'billPay':
+        if(!this.auth.isBanker && !this.auth.isAdmin) return 'You do not have permissons to recive the payment. Please log in as a banker or admin.';
+        break;
+      default:
+        return 'Unknown button.'
+    }
+  }
+    
 
 }

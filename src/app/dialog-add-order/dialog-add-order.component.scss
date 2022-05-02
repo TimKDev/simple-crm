@@ -8,3 +8,10 @@
     width: calc(100% + 48px);
   }
 }
+
+.cust-price-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
