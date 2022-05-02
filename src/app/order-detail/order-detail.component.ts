@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Goods, goodsShop } from 'src/models/goods.class';
 import { Order } from 'src/models/order.class';
+import { DialogEditOrderComponent } from '../dialog-edit-order/dialog-edit-order.component';
 import { FirebaseAuthService } from '../firebase-auth.service';
 
 @Component({
@@ -58,11 +59,9 @@ export class OrderDetailComponent implements OnInit {
   }
 
   editOrder() {
-
-  }
-
-  editIBAN() {
-
+    const dialogRef = this.dialog.open(DialogEditOrderComponent);
+    dialogRef.componentInstance.activOrder = new Order(this.activOrder);
+    dialogRef.componentInstance.orderId = this.orderId;
   }
 
   canclePayment() {
@@ -103,7 +102,7 @@ export class OrderDetailComponent implements OnInit {
     switch (btn) {
       case 'send':
         if(!this.auth.isSeller && !this.auth.isAdmin) return 'You do not have permissons to send the order. Please log in as a seller or admin.';
-        else if(this.activOrder.status != 'payed') return 'The order can only be send after it was payed by the customer. Please confirm the recived payment.'
+        else if(this.activOrder.status == 'active') return 'The order can only be send after it was payed by the customer. Please confirm the recived payment.'
         break;
       case 'billCancle':
         if(!this.auth.isBanker && !this.auth.isAdmin) return 'You do not have permissons to cancle the payment. Please log in as a banker or admin.';

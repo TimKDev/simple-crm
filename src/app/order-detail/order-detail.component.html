@@ -21,14 +21,6 @@
 <mat-card class="mt-32 bill-card" 
   [class.bill-payed]="(this.activOrder.status == 'payed') || (this.activOrder.status == 'completed')"
   [class.bill-open]="!((this.activOrder.status == 'payed') || (this.activOrder.status == 'completed'))">
-  <button mat-icon-button 
-    [matMenuTriggerFor]="bankingMenu"
-    class="pin-right-upper-corner">
-    <mat-icon>more_vert</mat-icon>
-  </button>
- <mat-menu #bankingMenu="matMenu">
-    <button mat-menu-item (click)="editIBAN()">Edit</button>
- </mat-menu>
   
   <mat-card-title>Bill <span class="bill-status">({{ getBillStatus(activOrder) }})</span></mat-card-title>
   <mat-card-content>
@@ -63,14 +55,6 @@
 
 
 <mat-card class="mt-32">
-  <button mat-icon-button 
-    [matMenuTriggerFor]="bankingMenu"
-    class="pin-right-upper-corner">
-    <mat-icon>more_vert</mat-icon>
-  </button>
- <mat-menu #bankingMenu="matMenu">
-    <button mat-menu-item (click)="editIBAN()">Edit</button>
- </mat-menu>
   
   <mat-card-title>Shipping Information</mat-card-title>
   <mat-card-content>

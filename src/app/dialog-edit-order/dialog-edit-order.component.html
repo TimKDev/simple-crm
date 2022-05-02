@@ -1,0 +1,36 @@
+<div class="dialog-container">
+  <mat-progress-bar *ngIf="loading"
+    mode="indeterminate"></mat-progress-bar>
+  <h1 mat-dialog-title>Add Order</h1>
+  <div mat-dialog-content>
+    <div class="products">
+      <app-product *ngFor="let product of products; let i = index"
+        (numberChange)="changeNumber($event)"
+        [product]="product"
+        [productPosition]="i"
+        [numberProduct]="numberProductsInBasket[i]"
+        [edit]="true">
+      </app-product>
+    </div>
+    
+    <div class="mt-32">
+      Total Price: <b>{{totalPrice}}€</b>
+    </div>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button
+      (click)="dialogRef.close()"
+      [disabled]="loading">
+      Cancle
+    </button>
+    <button mat-button
+      (click)="saveOrderChange()"
+      [disabled]="loading"
+      cdkFocusInitial>
+      Save
+    </button>
+  </div>
+
+</div>
+

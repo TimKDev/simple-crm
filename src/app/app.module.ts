@@ -53,6 +53,7 @@ import { ProductComponent } from './product/product.component';
 import { MatSelectModule } from '@angular/material/select';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.component';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -72,7 +73,8 @@ import { MatDividerModule } from '@angular/material/divider';
     OrdersComponent,
     DialogAddOrderComponent,
     ProductComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    DialogEditOrderComponent
   ],
   imports: [
     BrowserModule,
