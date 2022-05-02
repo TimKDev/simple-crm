@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Order } from 'src/models/order.class';
 import { User } from 'src/models/user.class';
 import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
@@ -17,7 +18,8 @@ export class ArchiveComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,15 @@ export class ArchiveComponent implements OnInit {
   }
 
   deleteOrder(orderId: string) {
-
+    this.firestore
+    .collection('orders')
+    .doc(orderId)
+    .delete();
+    // Hierfür gibt es doch eine schönere Lösung oder??? ########################################################
+    setTimeout(() => {
+      this.router.navigateByUrl('/archive');
+    }, 0);
+    
   }
 
 }
