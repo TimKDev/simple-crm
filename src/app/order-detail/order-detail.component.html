@@ -20,8 +20,8 @@
 
 
 <mat-card class="mt-32 bill-card" 
-  [class.bill-payed]="(activOrder.status == 'payed') || (activOrder.status == 'completed')"
-  [class.bill-open]="!((activOrder.status == 'payed') || (activOrder.status == 'completed'))">
+  [class.bg-green]="(activOrder.status == 'payed') || (activOrder.status == 'completed')"
+  [class.bg-red]="!((activOrder.status == 'payed') || (activOrder.status == 'completed'))">
   
   <mat-card-title>Bill <span class="bill-status">({{ getBillStatus(activOrder) }})</span></mat-card-title>
   <mat-card-content>

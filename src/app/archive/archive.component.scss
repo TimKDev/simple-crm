@@ -21,9 +21,9 @@ mat-card {
     &:last-child { // Unter dem letzten tr soll keine Linie mehr angezeigt werden.
         border-bottom: 0;
     }
-    &:hover {
-      background-color: rgba($color: #000000, $alpha: 0.04);
-    }
+    // &:hover {
+    //   background-color: rgba($color: #000000, $alpha: 0.04);
+    // }
     th {
       color: rgba($color: #000000, $alpha: 0.4);
       font-size: 14px;

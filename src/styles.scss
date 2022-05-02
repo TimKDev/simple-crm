@@ -14,3 +14,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .full-width {
   width: 100%;
 }
+
+.bg-green {
+  background-color: rgba(116, 218, 116, 0.333);
+  &:hover {
+    background-color: rgba(116, 218, 116, 0.529);
+  }
+}
+
+.bg-red {
+  background-color: rgba(238, 125, 125, 0.306);
+  &:hover {
+    background-color: rgba(238, 125, 125, 0.502);
+  }
+}

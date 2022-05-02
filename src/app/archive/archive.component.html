@@ -5,7 +5,10 @@
       <th>Status</th>
       <th>Betrag</th>
     </tr>
-    <tr *ngFor="let order of allOrders" [routerLink]="['/orders/' + order.orderIdName]">
+    <tr *ngFor="let order of allOrders" 
+      [class.bg-green]="order.status == 'completed'"
+      [class.bg-red]="order.status == 'cancled'"
+      [routerLink]="['/orders/' + order.orderIdName]">
       <td>{{ order.customer.firstName }} {{ order.customer.lastName }}</td>
       <td>{{ order.status }}</td>
       <td>{{ order.totalPrice }}€</td>
