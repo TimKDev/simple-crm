@@ -1,0 +1,21 @@
+<mat-card>
+  <table class="user-table">
+    <tr>
+      <th>Name Customer</th>
+      <th>Status</th>
+      <th>Betrag</th>
+    </tr>
+    <tr *ngFor="let order of allOrders" [routerLink]="['/orders/' + order.orderIdName]">
+      <td>{{ order.customer.firstName }} {{ order.customer.lastName }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order.totalPrice }}€</td>
+      <td>
+        <button mat-mini-fab color="primary" (click)="deleteOrder(order.orderIdName)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+</mat-card>
+

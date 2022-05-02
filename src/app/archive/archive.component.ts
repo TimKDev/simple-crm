@@ -1,16 +1,18 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Order } from 'src/models/order.class';
+import { User } from 'src/models/user.class';
 import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
-
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  selector: 'app-archive',
+  templateUrl: './archive.component.html',
+  styleUrls: ['./archive.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class ArchiveComponent implements OnInit {
+
   allOrders: any = [];
 
   constructor(
@@ -25,21 +27,13 @@ export class OrdersComponent implements OnInit {
     .subscribe((changes: any) => {
       console.log('Received changes from DB:', changes);
       this.allOrders = changes.filter((order: Order) => {
-        return (order.status == 'active' || order.status == 'payed');
-      });;
-      
+        return (order.status == 'completed' || order.status == 'cancled');
+      });
     });
   }
 
-  openDialog() {
-    // An die Material Service Methode open() wird die Komponente übergeben, die im
-    // Dialogfenster angezeigt werden soll:
-    const dialogRef = this.dialog.open(DialogAddOrderComponent);
+  deleteOrder(orderId: string) {
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
-
 
 }

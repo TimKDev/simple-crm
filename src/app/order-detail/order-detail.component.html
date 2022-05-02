@@ -1,6 +1,7 @@
 <mat-card class="user-detail-header">
   <button mat-icon-button 
     [matMenuTriggerFor]="userMenu"
+    *ngIf="(auth.isSeller || auth.isAdmin) && activOrder.status != 'completed'"
     class="pin-right-upper-corner">
     <mat-icon>more_vert</mat-icon>
   </button>
@@ -19,8 +20,8 @@
 
 
 <mat-card class="mt-32 bill-card" 
-  [class.bill-payed]="(this.activOrder.status == 'payed') || (this.activOrder.status == 'completed')"
-  [class.bill-open]="!((this.activOrder.status == 'payed') || (this.activOrder.status == 'completed'))">
+  [class.bill-payed]="(activOrder.status == 'payed') || (activOrder.status == 'completed')"
+  [class.bill-open]="!((activOrder.status == 'payed') || (activOrder.status == 'completed'))">
   
   <mat-card-title>Bill <span class="bill-status">({{ getBillStatus(activOrder) }})</span></mat-card-title>
   <mat-card-content>
@@ -37,6 +38,7 @@
   <mat-card-actions class="button-box-box">
     <div [matTooltip]="buttonMess('billCancle')" class="button-box">
       <button mat-button
+        *ngIf="activOrder.status != 'completed'"
         [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
         (click)="canclePayment()">
         Cancle payment
@@ -44,6 +46,7 @@
     </div>
     <div [matTooltip]="buttonMess('billPay')" class="button-box">
       <button mat-button
+        *ngIf="activOrder.status != 'completed'"
         [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status == 'payed') || (this.activOrder.status == 'completed') "
         (click)="userPayed()"
         cdkFocusInitial>
@@ -65,6 +68,7 @@
   <mat-card-actions>
     <div [matTooltip]="buttonMess('send')" class="button-box">
       <button mat-button
+        *ngIf="activOrder.status != 'completed'"
         [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
         (click)="sendOrder()"
         cdkFocusInitial>
