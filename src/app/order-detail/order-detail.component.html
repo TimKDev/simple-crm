@@ -38,7 +38,7 @@
   <mat-card-actions class="button-box-box">
     <div [matTooltip]="buttonMess('billCancle')" class="button-box">
       <button mat-button
-        *ngIf="activOrder.status != 'completed'"
+        *ngIf="activOrder.status != 'completed' && activOrder.status != 'cancled'"
         [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
         (click)="canclePayment()">
         Cancle payment
@@ -46,7 +46,7 @@
     </div>
     <div [matTooltip]="buttonMess('billPay')" class="button-box">
       <button mat-button
-        *ngIf="activOrder.status != 'completed'"
+        *ngIf="activOrder.status != 'completed' && activOrder.status != 'cancled'"
         [disabled]="(!this.auth.isBanker && !this.auth.isAdmin) || (this.activOrder.status == 'payed') || (this.activOrder.status == 'completed') "
         (click)="userPayed()"
         cdkFocusInitial>
@@ -66,14 +66,25 @@
     <span>{{ activOrder.customer.zipCode }} {{ activOrder.customer.city }}</span> <br>
   </mat-card-content>
   <mat-card-actions>
-    <div [matTooltip]="buttonMess('send')" class="button-box">
-      <button mat-button
-        *ngIf="activOrder.status != 'completed'"
-        [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
-        (click)="sendOrder()"
-        cdkFocusInitial>
-        Send Order
-      </button>
+    <div class="button-box-box">
+      <div [matTooltip]="buttonMess('send')" class="button-box">
+        <button mat-button
+          *ngIf="activOrder.status != 'completed' && activOrder.status != 'cancled'"
+          [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status == 'completed')"
+          (click)="cancleOrder()"
+          cdkFocusInitial>
+          Cancle Order
+        </button>
+      </div>
+      <div [matTooltip]="buttonMess('send')" class="button-box">
+        <button mat-button
+          *ngIf="activOrder.status != 'completed' && activOrder.status != 'cancled'"
+          [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status != 'payed')"
+          (click)="sendOrder()"
+          cdkFocusInitial>
+          Send Order
+        </button>
+      </div>
     </div>
   </mat-card-actions>
 </mat-card>

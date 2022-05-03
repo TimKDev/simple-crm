@@ -84,6 +84,12 @@ export class OrderDetailComponent implements OnInit {
     }
   }
 
+  cancleOrder() {
+    this.activOrder.status = 'cancled';
+    this.saveOrder();
+    alert('This order was successfully cancled.');
+  }
+
   sendOrder() {
     if (this.activOrder.status == 'payed'){
       this.activOrder.status = 'completed';

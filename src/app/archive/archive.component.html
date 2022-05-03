@@ -13,9 +13,10 @@
       <td>{{ order.status }}</td>
       <td>{{ order.totalPrice }}€</td>
       <td>
-        <button mat-mini-fab color="primary" (click)="deleteOrder(order.orderIdName)" class="button-class">
+        <mat-icon (click)="deleteOrder(order.orderIdName)">delete</mat-icon>
+        <!-- <button mat-mini-fab color="primary" (click)="deleteOrder(order.orderIdName)" class="button-class">
           <mat-icon>delete</mat-icon>
-        </button>
+        </button> -->
     </tr>
   </table>
 
