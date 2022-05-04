@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Order } from 'src/models/order.class';
+import { FirebaseAuthService } from '../firebase-auth.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ArchiveComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    public auth: FirebaseAuthService
     ) { }
 
   ngOnInit(): void {

@@ -12,7 +12,7 @@
       <td>{{ order.customer.firstName }} {{ order.customer.lastName }}</td>
       <td>{{ order.status }}</td>
       <td>{{ order.totalPrice }}€</td>
-      <td>
+      <td *ngIf="auth.isAdmin">
         <mat-icon (click)="deleteOrder(order.orderIdName)">delete</mat-icon>
         <!-- <button mat-mini-fab color="primary" (click)="deleteOrder(order.orderIdName)" class="button-class">
           <mat-icon>delete</mat-icon>
