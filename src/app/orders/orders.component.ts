@@ -26,7 +26,7 @@ export class OrdersComponent implements OnInit {
       console.log('Received changes from DB:', changes);
       this.allOrders = changes.filter((order: Order) => {
         return (order.status == 'active' || order.status == 'payed');
-      });;
+      });
       
     });
   }

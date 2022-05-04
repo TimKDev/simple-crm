@@ -1,11 +1,13 @@
 <mat-card class="user-detail-header">
   <button mat-icon-button 
+    *ngIf="auth.isAdmin || auth.isSeller"
     [matMenuTriggerFor]="userMenu"
     class="pin-right-upper-corner">
     <mat-icon>more_vert</mat-icon>
   </button>
  <mat-menu #userMenu="matMenu">
     <button mat-menu-item (click)="editUser()">Edit</button>
+    <button mat-menu-item (click)="deleteUser()">Delete User</button>
  </mat-menu>
 
   <img src="./assets/img/1.webp">
@@ -17,6 +19,7 @@
 
 <mat-card class="mt-32">
   <button mat-icon-button 
+    *ngIf="auth.isAdmin || auth.isSeller"
     [matMenuTriggerFor]="bankingMenu"
     class="pin-right-upper-corner">
     <mat-icon>more_vert</mat-icon>
@@ -33,6 +36,7 @@
 
 <mat-card class="mt-32">
   <button mat-icon-button 
+    *ngIf="auth.isAdmin || auth.isSeller"
     [matMenuTriggerFor]="addressMenu"
     class="pin-right-upper-corner">
     <mat-icon>more_vert</mat-icon>
@@ -50,6 +54,7 @@
 
 <mat-card class="mt-32">
   <button mat-icon-button 
+    *ngIf="auth.isAdmin || auth.isSeller"
     [matMenuTriggerFor]="BirthdayMenu"
     class="pin-right-upper-corner">
     <mat-icon>more_vert</mat-icon>
@@ -61,6 +66,24 @@
   <mat-card-title>Birthday</mat-card-title>
   <mat-card-content>
     {{ currentUserBirthDate }}
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+  <mat-card-title>Customer Statistics</mat-card-title>
+  <mat-card-content>
+    <table class="table">
+      <tr>
+        <th>Total Payments</th>
+        <th>Total Number Orders</th>
+        <th>Total Open Payments</th>
+      </tr>
+      <tr>
+        <td>{{ totalPayments }}€</td>
+        <td>{{ numberOrders }}</td>
+        <td [class.redColor]="openPayments > 0">{{ openPayments }}€</td>
+      </tr>
+    </table>
   </mat-card-content>
 </mat-card>
 

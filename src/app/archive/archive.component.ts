@@ -3,9 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Order } from 'src/models/order.class';
-import { User } from 'src/models/user.class';
-import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
-import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+
 
 @Component({
   selector: 'app-archive',
