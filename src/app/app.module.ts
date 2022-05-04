@@ -57,6 +57,8 @@ import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.
 import { ArchiveComponent } from './archive/archive.component';
 import { HelpComponent } from './help/help.component';
 import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-birthday.component';
+// Das folgende Modul kann verwendet werden, um Diagramme zu erstellen:  
+import { NgChartsModule } from 'ng2-charts';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -111,7 +113,8 @@ import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-
     MatMenuModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    NgChartsModule
   ],
   // Services die dem folgenden providers Array hinzugefügt werden, sind in der gesamten App zugänglich
   // und müssen nicht mehr am Anfang importiert werden: 
