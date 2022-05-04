@@ -26,7 +26,12 @@
             <mat-icon (click)="drawer.toggle()" class="menu-icon">menu</mat-icon>
             <span>Simple CRM</span>
           </div>
-          <div>
+          <div class="role-description">
+            Signed in Role:
+            <span *ngIf="fireAuth.isAdmin">Admin</span>
+            <span *ngIf="fireAuth.isSeller && !fireAuth.isAdmin">Salesman</span>
+            <span *ngIf="fireAuth.isBanker && !fireAuth.isAdmin">Banker</span>
+            <span *ngIf="!fireAuth.isBanker && !fireAuth.isAdmin && !fireAuth.isSeller">You are not signed in.</span>
             <button mat-raised-button color="basic" (click)="logOut()">Log out</button>
           </div>
         </mat-toolbar-row>

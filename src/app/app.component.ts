@@ -10,12 +10,17 @@ import { FirebaseAuthService } from './firebase-auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'simple-crm';
-  loggedIn = true;
-  // role!: string;
+  loggedIn = false;
   
   constructor(public fireAuth: FirebaseAuthService){ }
 
   ngOnInit() {
+    const email = localStorage.getItem('userAuthEMail');
+    const password = localStorage.getItem('userAuthPassword');
+    if(email && password){
+      this.fireAuth.signIn(email, password);
+      this.loggedIn = true;
+    }
   }
 
   logUserIn(bool: boolean){

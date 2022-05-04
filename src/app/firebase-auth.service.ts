@@ -26,6 +26,8 @@ export class FirebaseAuthService {
     .then(res => {
       this.loggedIn = true;    
       this.updateLocalData(res);
+      localStorage.setItem('userAuthEMail', email);
+      localStorage.setItem('userAuthPassword', password);
     })
     .catch(err => {
       console.warn(err);
@@ -57,7 +59,8 @@ export class FirebaseAuthService {
 
   logOut() {
     this.firebaseAuth.signOut();
-    localStorage.removeItem('userAuth');
+    localStorage.removeItem('userAuthEMail');
+      localStorage.removeItem('userAuthPassword');
     this.loggedIn = false;
   }
 

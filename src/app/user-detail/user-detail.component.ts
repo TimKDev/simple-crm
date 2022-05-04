@@ -68,7 +68,7 @@ export class UserDetailComponent implements OnInit {
         return (order.customer.firstName == this.currentUser.firstName &&
           order.customer.lastName == this.currentUser.lastName &&
           order.customer.eMail == this.currentUser.eMail && 
-          order.status == 'completed');
+          (order.status == 'completed' || order.status == 'payed'));
       });
       this.openOrders = changes.filter((order: Order) => {      
         return (order.customer.firstName == this.currentUser.firstName &&
