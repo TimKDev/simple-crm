@@ -48,6 +48,24 @@
   </mat-card-content>
 </mat-card>
 
+<mat-card class="mt-32">
+  <button mat-icon-button 
+    [matMenuTriggerFor]="BirthdayMenu"
+    class="pin-right-upper-corner">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+ <mat-menu #BirthdayMenu="matMenu">
+    <button mat-menu-item (click)="editBirthday()">Edit</button>
+ </mat-menu>
+  
+  <mat-card-title>Birthday</mat-card-title>
+  <mat-card-content>
+    {{ currentUserBirthDate }}
+  </mat-card-content>
+</mat-card>
+
+
+
 
 
 

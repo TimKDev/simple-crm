@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditBankingComponent } from '../dialog-edit-banking/dialog-edit-banking.component';
+import { DialogEditBirthdayComponent } from '../dialog-edit-birthday/dialog-edit-birthday.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
@@ -15,6 +16,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
 
   currentUser: User = new User();
+  currentUserBirthDate!: Date;
   userId: any = '';
 
   constructor(
@@ -40,7 +42,7 @@ export class UserDetailComponent implements OnInit {
     .valueChanges()
     .subscribe((user: any) => {
       this.currentUser = new User(user);
-      console.log('Current User', this.currentUser);
+      this.currentUserBirthDate = new Date(this.currentUser.birthDate);
     });
   }
 
@@ -62,6 +64,12 @@ export class UserDetailComponent implements OnInit {
 
   editBanking() {
     const dialog = this.dialog.open(DialogEditBankingComponent);
+    dialog.componentInstance.currentUser = new User(this.currentUser);
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  editBirthday() {
+    const dialog = this.dialog.open(DialogEditBirthdayComponent);
     dialog.componentInstance.currentUser = new User(this.currentUser);
     dialog.componentInstance.userId = this.userId;
   }

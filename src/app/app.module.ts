@@ -56,6 +56,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { HelpComponent } from './help/help.component';
+import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-birthday.component';
 
 // Bei import Problemen, überprüfe auch ob alle von dir selbst erstellten Komponenten auch hier importiert wurden.
 // Die CLI hat hier manchmal Bugs!!! 
@@ -78,7 +79,8 @@ import { HelpComponent } from './help/help.component';
     OrderDetailComponent,
     DialogEditOrderComponent,
     ArchiveComponent,
-    HelpComponent
+    HelpComponent,
+    DialogEditBirthdayComponent
   ],
   imports: [
     BrowserModule,
