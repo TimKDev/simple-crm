@@ -16,8 +16,8 @@ export class DashboardComponent {
   totalNumber = 0;
   totalOpenPayments = 0;
 
-  lableChart = ['Phone1', 'Phone2', 'Phone3' ];
-  dataChart = [300, 500, 100];
+  lableChart = ['Phone1', 'Phone2', 'Phone3', 'Phone4'];
+  dataChart = [0,0,0,0];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -65,6 +65,7 @@ export class DashboardComponent {
         return !(order.status == 'cancled');
       });
       console.log(this.allOrders);
+      this.calcStatistics();
     });
   }
 
@@ -72,14 +73,30 @@ export class DashboardComponent {
     this.totalPayments = 0;
     this.totalNumber = 0;
     this.totalOpenPayments = 0;
-    
+    this.dataChart = [0, 0, 0, 0];
   }
 
   calcStatistics() {
+    this.resetStatistics();
     this.allOrders
     .forEach((order: Order) => {
-      
+      this.totalNumber++;
+      if(order.status != 'active') this.totalPayments += order.totalPrice;
+      else this.totalOpenPayments += order.totalPrice;
+      this.addChartNumbers(order);
     });
+  }
+
+  addChartNumbers(order: Order) {
+    for (let i = 0; i < order.numberProductsInBasket.length; i++) {
+      this.dataChart[i] += order.numberProductsInBasket[i];
+    }
+    this.pieChartData = {
+      labels: this.lableChart,
+      datasets: [ {
+        data: this.dataChart
+      } ]
+    };
   }
 
  
