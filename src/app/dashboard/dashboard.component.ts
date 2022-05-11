@@ -99,6 +99,14 @@ export class DashboardComponent {
     };
   }
 
+  checkZeroChartData(dataChart: number[]): boolean {
+    let result = false;
+    dataChart.forEach((num: number) => {
+      if(num != 0) result = true;
+    });
+    return result;
+  }
+
  
 
 }
