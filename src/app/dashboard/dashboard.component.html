@@ -1,11 +1,42 @@
-<p>dashboard works!</p>
-<div>
-  <canvas baseChart
-    width="200"
-    height="200"
-    [data]="pieChartData"
-    [type]="pieChartType"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins">
-  </canvas>
-</div>
+<mat-card>
+  <mat-card-title>App Describtion</mat-card-title>
+  <mat-card-content>
+    Kurze Beschreibung der App: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente quibusdam quia ea laboriosam! Ullam saepe accusamus et perferendis alias inventore porro beatae totam ad, assumenda quos nesciunt? Consequatur, quis ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis veniam, eos totam at accusamus error reprehenderit laborum esse quae ex soluta labore tenetur. Quo tempora corrupti suscipit, sit sint nihil?
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+  <mat-card-title>Distribution of Sales</mat-card-title>
+  <mat-card-content>
+    The following chart shows the numbers of selled goods:
+    <div>
+      <canvas baseChart
+        width="400"
+        height="400"
+        [data]="pieChartData"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins">
+      </canvas>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+  <mat-card-title>Customer Statistics</mat-card-title>
+  <mat-card-content>
+    <table class="table">
+      <tr>
+        <th>Total Payments</th>
+        <th>Total Number Orders</th>
+        <th>Total Open Payments</th>
+      </tr>
+      <tr>
+        <td>{{ totalPayments }}€</td>
+        <td>{{ totalNumber }}</td>
+        <td>{{ totalOpenPayments }}€</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
