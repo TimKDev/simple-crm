@@ -28,3 +28,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: rgba(238, 125, 125, 0.502);
   }
 }
+
+mat-card{
+  overflow: hidden;
+}
+
+@media(max-width: 700px){
+  .hide-700 {
+    display: none!important;
+  }
+}
+
+@media(max-width: 500px){
+  .hide-500 {
+    display: none!important;
+  }
+}
+
+
+
+
+
+
+
+
