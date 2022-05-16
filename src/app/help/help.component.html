@@ -1,1 +1,68 @@
-<p>help works!</p>
+<h1>Help</h1>
+<p>
+  This simple buisness management app for a shop selling smartphones has several features the user can 
+  explore:
+</p>
+
+<h2>Login</h2>
+<p>
+  First the user (in most cases an employee of the smartphone shop) needs to create themself an account or 
+  log themself in. There are three different roles in the buisness each with different permissions for using 
+  the app:
+</p>
+<ul>
+  <li>
+    <b>Admin:</b> 
+    <ul>
+      <li>Has all permissions in the app</li>
+      <li>Delete order from archive and thus also from statistics.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Salesman:</b> 
+    <ul>
+      <li>Create, edit or delete customer information</li>
+      <li>Create new order for a customer</li>
+      <li>Edit the shopping cart of an existing order</li>
+      <li>Cancle an existing order</li>
+      <li>Send order to customer after a banker or admin confirmed that the bill was payed by the customer</li>
+    </ul>
+  </li>
+  <li>
+    <b>Banker:</b> 
+    <ul>
+      <li>Confirm payment of bill for an order</li>
+      <li>Cancle payment of a bill for an order</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Dashboard</h2>
+<p>
+  The dashboard shows different statistics and a describtion of the shop. The shop statistics contain the total 
+  turnover of the shop for all successful payments, the number of orders completed and also the number of open
+  payments which still need to be payed by the customers. The distribution of sales shows the numbers of different
+  smartphone typs selled.  
+</p>
+
+<h2>Customes</h2>
+<p>
+  This section contains a list of customers of the shop and their respective information about Name, E-Mail, IBAN,
+  address and statistics of current and old orders from the customer. The information saved here is used when new 
+  orders for this customer are added.
+</p>
+
+<h2>Orders</h2>
+<p>
+  The orders section contains a list of current orders which are not completed or cancled. The color of the list entry 
+  indicates if the order is already payed and only needs to be send to the customer (green) or if the order has not been 
+  payed by customer (red). By clicking on an order one gets more details and also the possibilty to confirm the payment 
+  or send the order of cause depending on the permissions of user currently loggin in the app.
+</p>
+
+<h2>Archive</h2>
+<p>
+  The archive contains a list of all completed or cancled orders. By clicking on the order one can again see more details
+  but it is not possible to change any information of the order. A user with admin permissions can delete an order from 
+  the archive and thus removing it completely from the backend database. 
+</p>
