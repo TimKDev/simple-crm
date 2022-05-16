@@ -45,6 +45,11 @@ mat-card{
   }
 }
 
+@media(max-width: 400px){
+  .hide-400 {
+    display: none;
+  }
+}
 
 
 
