@@ -21,7 +21,7 @@
 }
 
 .mat-card-style {
-  width: 600px;
+  max-width: 600px;
   position: relative;
   mat-progress-bar {
     position: absolute;
@@ -30,3 +30,23 @@
     top: 0;
   }
 }
+
+
+@media(max-width: 470px){
+  .mat-card-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+

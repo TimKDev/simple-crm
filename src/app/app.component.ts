@@ -11,8 +11,11 @@ import { FirebaseAuthService } from './firebase-auth.service';
 export class AppComponent implements OnInit{
   title = 'simple-crm';
   loggedIn = false;
+  boolOpen: boolean = true;
   
-  constructor(public fireAuth: FirebaseAuthService){ }
+  constructor(
+    public fireAuth: FirebaseAuthService
+  ){ }
 
   ngOnInit() {
     const email = localStorage.getItem('userAuthEMail');
@@ -30,5 +33,10 @@ export class AppComponent implements OnInit{
   logOut() {
     this.fireAuth.logOut();
     this.loggedIn = false;
+  }
+
+  setBoolOpen() {
+    this.boolOpen = true;
+    if(window.innerWidth < 1200) this.boolOpen = false;
   }
 }
