@@ -6,23 +6,23 @@ export interface Goods{
 
 export let goodsShop: Goods[] = [
   {
-    name: 'phone1',
+    name: 'Samsung Galaxy X',
     price: 500,
     imageURL: './assets/img/phone1.jpg'
   },
   {
-    name: 'phone2',
-    price: 450,
+    name: 'Apple iPhone IE',
+    price: 950,
     imageURL: './assets/img/phone2.jpg'
   },
   {
-    name: 'phone3',
+    name: 'Samsung Galaxy Note',
     price: 700,
     imageURL: './assets/img/phone3.jpg'
   },
   {
-    name: 'phone4',
-    price: 800,
+    name: 'LG Neon XL',
+    price: 550,
     imageURL: '../assets/img/phone4.jpg'
   },
 ];

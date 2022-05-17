@@ -16,7 +16,7 @@ export class DashboardComponent {
   totalNumber = 0;
   totalOpenPayments = 0;
 
-  lableChart = ['Phone1', 'Phone2', 'Phone3', 'Phone4'];
+  lableChart = ['Samsung Galaxy X', 'Apple iPhone IE', 'Samsung Galaxy Note', 'LG Neon XL'];
   dataChart = [0,0,0,0];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
