@@ -30,17 +30,14 @@ export class FirebaseAuthService {
       localStorage.setItem('userAuthPassword', password);
     })
     .catch(err => {
-      console.warn(err);
+      alert(err);
     });
   }
 
   async signUp(email: string, password: string, config = {isSeller: false, isBanker: false, isAdmin: false}) {
     await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
     .catch(err => {
-      // Wie kann man hier die verschiedneen Fehler (keine valid E-Mail, bzw. zu kurzes Passwort) unterscheiden
-      // ein entsprechendes Alert ausgeben?
-      // ##########################################################################################
-      console.warn(err);
+      alert(err);
     });
     // After creating the account the new created user is logged in and the 
     // user privaleges are save to the firestore where the user UID is used as

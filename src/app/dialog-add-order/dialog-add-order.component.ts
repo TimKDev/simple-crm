@@ -66,7 +66,16 @@ export class DialogAddOrderComponent implements OnInit {
   // }
 
 
-  saveUser() {
+  checkValidInput() {
+    if(this.selectedUser && this.totalPrice > 0) return true;
+    return false;
+  }
+
+  saveOrder() {
+    if(!this.checkValidInput()){
+      alert('Please select a customer and enter a valid order!');
+      return;
+    }
     this.loading = true;
     let newOrder = {
       numberProductsInBasket: this.numberProductsInBasket,

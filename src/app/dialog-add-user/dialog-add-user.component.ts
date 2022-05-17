@@ -25,8 +25,18 @@ export class DialogAddUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkValidInput() {
+    if(this.user.firstName && this.user.lastName && this.user.eMail && this.user.IBAN && this.birthDate 
+      && this.user.street && this.user.zipCode && this.user.city) return true;
+    return false;
+  }
+
 
   saveUser() {
+    if(!this.checkValidInput()){
+      alert('Please provide valid information for all input fields!');
+      return;
+    } 
     this.loading = true;
     this.user.birthDate = this.birthDate.getTime(); // Erhalte den TimeStamp des Datums
     console.log('Current User is:', this.user.toJSON());
