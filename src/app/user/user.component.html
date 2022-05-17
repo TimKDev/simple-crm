@@ -18,6 +18,7 @@
 <!-- Mit der Angular Material Tooltip Komponente können Beschreibungen mit Erklärungen beim 
 Hovern über bestimmten Objekten angezeigt werden:  -->
 <button mat-fab color="primary"
+  *ngIf="auth.isSeller || auth.isAdmin"
   (click)="openDialog()"
   class="add-button"
   matTooltip="Add User">

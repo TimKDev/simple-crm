@@ -36,6 +36,7 @@
             <span class="hide-700">Signed in Role:</span> 
             <span class="hide-700" *ngIf="fireAuth.isAdmin">Admin</span>
             <span class="hide-700" *ngIf="fireAuth.isSeller && !fireAuth.isAdmin">Salesman</span>
+            <span class="hide-700" *ngIf="fireAuth.isSeller && !fireAuth.isAdmin && fireAuth.isBanker"> and </span>
             <span class="hide-700" *ngIf="fireAuth.isBanker && !fireAuth.isAdmin">Banker</span>
             <span class="hide-700" *ngIf="!fireAuth.isBanker && !fireAuth.isAdmin && !fireAuth.isSeller">You are not signed in.</span>
             <button class="hide-500" mat-raised-button color="basic" (click)="logOut()">Log out</button>

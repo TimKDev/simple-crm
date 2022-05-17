@@ -67,7 +67,7 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="button-box-box">
-      <div [matTooltip]="buttonMess('send')" class="button-box">
+      <div class="button-box">
         <button mat-button
           *ngIf="activOrder.status != 'completed' && activOrder.status != 'cancled'"
           [disabled]="(!this.auth.isSeller && !this.auth.isAdmin) || (this.activOrder.status == 'completed')"

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Order } from 'src/models/order.class';
 import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
+import { FirebaseAuthService } from '../firebase-auth.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class OrdersComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    public auth: FirebaseAuthService
     ) { }
 
   ngOnInit(): void {
