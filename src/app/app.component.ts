@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
   ){ }
 
   ngOnInit() {
+    this.setBoolOpen();
     const email = localStorage.getItem('userAuthEMail');
     const password = localStorage.getItem('userAuthPassword');
     if(email && password){
